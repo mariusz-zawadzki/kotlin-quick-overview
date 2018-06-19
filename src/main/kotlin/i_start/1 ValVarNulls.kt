@@ -1,9 +1,9 @@
 package i_start
 
-const val A_CONSTANT_VALUE = "A constant"
-var aNormalVariable = 42.0
 
+const val A_CONSTANT_VALUE = "A constant"
 fun main(args: Array<String>) {
+    var aNormalVariable = 42.0
     var `only local variables can be named like this` = 12
 
     println(A_CONSTANT_VALUE)
