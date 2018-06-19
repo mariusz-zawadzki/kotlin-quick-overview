@@ -26,6 +26,9 @@ val fibonacci = buildSequence {
 private val THREADCOUNT = 100_000
 
 fun main(args: Array<String>) {
+    println(fibonacci.take(10).joinToString())
+
+
     runBlocking<Unit> {
         val jobs = List(100_000) {
             // launch a lot of coroutines and list their jobs
@@ -39,6 +42,5 @@ fun main(args: Array<String>) {
         println()
     }
 
-    println(fibonacci.take(10).joinToString())
 
 }
