@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.Coroutines
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -8,6 +9,9 @@ plugins {
 group = "zawadzki"
 version = "1.0-SNAPSHOT"
 
+kotlin { // configure<org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension>
+    experimental.coroutines = Coroutines.ENABLE
+}
 repositories {
     mavenCentral()
 }
@@ -15,6 +19,8 @@ repositories {
 dependencies {
     compile(kotlin("stdlib-jdk8"))
     compile("org.apache.commons",  "commons-lang3","3.7")
+
+    compile("org.jetbrains.kotlinx","kotlinx-coroutines-core","0.23.3")
     testCompile("junit", "junit", "4.12")
 }
 
