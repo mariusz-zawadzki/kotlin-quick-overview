@@ -5,6 +5,7 @@ data class Point(val x: Int, val y: Int)
 
 fun Point.metric(): Int = x * x + y * y
 
+//operator
 fun Point.compareTo(p: Point): Int {
     return this.metric().compareTo(p.metric())
 }
