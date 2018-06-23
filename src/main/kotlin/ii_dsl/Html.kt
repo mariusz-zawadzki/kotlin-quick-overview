@@ -6,15 +6,22 @@ class TextElement(private val text: String) : Element() {
     override fun toString() = text
 }
 
-class Tag(private val name: String, var children: MutableList<Element> = mutableListOf()) : Element() {
+class Tag(private val name: String, var children: MutableList<Element> = mutableListOf(), val attributes: MutableMap<String, String> = mutableMapOf()) : Element() {
     private fun renderChildren() = children.joinToString(separator = "") { it.toString() }
 
     override fun toString(): String {
-        return "<$name>" +
+        return "<$name${hasAttributes()}${renderAttributes()}>" +
                 renderChildren() +
                 "</$name>"
     }
 
+    private fun renderAttributes() =
+            attributes.entries.joinToString(separator = " ") { "${it.key}=\"${it.value.replace("\"", "\\\"")}\"" }
+
+    private fun hasAttributes() = when {
+        attributes.isEmpty() -> ""
+        else -> " "
+    }
 
     fun text(s: String) {
         children.add(TextElement(s))
@@ -64,6 +71,7 @@ fun main(args: Array<String>) {
                     div {
                         h1 {
                             span {
+                                attributes["style"] = "color: #FFF;"
                                 text("ya text")
                             }
                         }
