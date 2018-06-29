@@ -10,7 +10,7 @@ import kotlin.concurrent.thread
 import kotlin.coroutines.experimental.*
 import kotlin.system.measureTimeMillis
 
-private val THREADCOUNT = 100_000
+private val THREADCOUNT = 10_000
 
 fun main(args: Array<String>) {
     val cooRoutineC = AtomicInteger()
@@ -18,10 +18,10 @@ fun main(args: Array<String>) {
     val threadC = AtomicInteger()
     val runBlockingMeasure = measureTimeMillis {
         runBlocking<Unit> {
-            val jobs = List(THREADCOUNT) {
+            val jobs = 1.rangeTo(THREADCOUNT).map {
                 // launch a lot of coroutines and list their jobs
                 async {
-                    delay(100L, TimeUnit.MILLISECONDS)
+                    delay(1L, TimeUnit.MILLISECONDS)
                     1
                 }
             }
@@ -35,7 +35,7 @@ fun main(args: Array<String>) {
         }
     }
     val coroutinesMeasure = measureTimeMillis {
-        for (i in 1..THREADCOUNT) {
+        1.rangeTo(THREADCOUNT).map {
             launch {
                 cooRoutineC.addAndGet(1)
             }
