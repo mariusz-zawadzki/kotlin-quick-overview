@@ -12,7 +12,8 @@ fun main(args: Array<String>) {
         print(it)
     }
     println()
-    for (c in 'a'..'z') {
+    val charRange = 'a'..'z'
+    for (c in charRange) {
         print(c)
     }
     println()
@@ -21,7 +22,7 @@ fun main(args: Array<String>) {
     }
     println()
     //no more off by on (refactor)
-    for (i in 0..someList.size - 1) {
+    for (i in 0 until someList.size) {
         print(someList[i])
     }
 }

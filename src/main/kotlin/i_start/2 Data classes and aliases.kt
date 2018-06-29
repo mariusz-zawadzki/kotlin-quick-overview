@@ -3,6 +3,7 @@ package i_start
 
 
 data class Customer(val id:Long, val users: List<User>)
+
 data class User(val id: Long, val name:String, val email: Email)
 
 typealias Email = String

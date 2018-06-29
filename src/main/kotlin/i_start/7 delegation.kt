@@ -9,7 +9,6 @@ class SomeClass<T>(val delegate: List<T>) : List<T> by delegate {
     }
     // it can be either this up or as an extension function
 
-
     //we need toString because it is not a dataclass (it can be though)
     override fun toString(): String {
         return delegate.toString()

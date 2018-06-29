@@ -29,14 +29,14 @@ fun main(args: Array<String>) {
 
 }
 
-private fun handleOther(nothingSpecial: Any) {
+fun handleString(anyString: String) {
+    println("Is String ${anyString.toUpperCase()}")
+}
+
+fun handleInt(anyInt: Int) {
+    println("Is Int: ${anyInt.rangeTo(20)}")
+}
+
+fun handleOther(nothingSpecial: Any) {
     println("Is something else ($nothingSpecial) .")
-}
-
-private fun handleInt(any: Int) {
-    println("Is Int: ${any.rangeTo(20)}")
-}
-
-private fun handleString(any: String) {
-    println("Is String ${any.toUpperCase()}")
 }
