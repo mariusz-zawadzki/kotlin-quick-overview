@@ -23,7 +23,7 @@ val fibonacci = buildSequence {
     }
 }
 
-private val THREADCOUNT = 1_000_000
+private const val THREADCOUNT = 1_000_000
 
 fun main(args: Array<String>) {
     println(fibonacci.take(10).joinToString())
