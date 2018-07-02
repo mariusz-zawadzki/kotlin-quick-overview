@@ -19,7 +19,8 @@ val fibonacci = buildSequence {
         yield(b)
 
         val next = a + b
-        a = b; b = next
+        a = b
+        b = next
     }
 }
 
