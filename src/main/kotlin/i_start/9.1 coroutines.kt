@@ -23,14 +23,14 @@ val fibonacci = buildSequence {
     }
 }
 
-private val THREADCOUNT = 100_000
+private val THREADCOUNT = 1_000_000
 
 fun main(args: Array<String>) {
     println(fibonacci.take(10).joinToString())
 
 
     runBlocking<Unit> {
-        val jobs = List(100_000) {
+        val jobs = List(THREADCOUNT) {
             // launch a lot of coroutines and list their jobs
             async {
                 delay(1000L)
